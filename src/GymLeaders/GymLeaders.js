@@ -4,10 +4,11 @@ import { PropTypes } from 'prop-types';
 
 
 
-export default opponentInfo = 
-    [
+
+
+export const opponentInfo = [
         {
-        "image": "./GymLeader-images/milo-game.jpg",
+        "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/milo-game.jpg?raw=true",
         "order": 1,
         "gym": "Turffield Gym",
         "leader": "Milo",
@@ -32,7 +33,7 @@ export default opponentInfo =
         
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/nessa-game.jpg?raw=true",
             "order": 2,
             "gym": "Hulbury Gym",
             "leader": "Nessa",
@@ -64,7 +65,7 @@ export default opponentInfo =
             
         },  
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/kabu-game.jpg?raw=true",
             "order": 3,
             "gym": "Motostoke Gym",
             "leader": "Kabu",
@@ -96,7 +97,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/allister-game.jpg?raw=true",
             "order": 4,
             "gym": "Stow-on-Side Gym: Pokemon Shield",
             "leader": "Allister",
@@ -135,7 +136,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/bea-game.jpg?raw=true",
             "order": 4,
             "gym": "Stow-on-Side Gym: Pokemon Sword",
             "leader": "Bea",
@@ -174,7 +175,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/opal-game.jpg?raw=true",
             "order": 5,
             "gym": "Ballonlea Gym",
             "leader": "Opal",
@@ -213,7 +214,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/melony-game.jpg?raw=true",
             "order": 6,
             "gym": "Circhester Gym: Pokemon Shield",
             "leader": "Melony",
@@ -252,7 +253,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/gordie-game.jpg?raw=true",
             "order": 6,
             "gym": "Circhester Gym: Pokemon Sword",
             "leader": "Gordie",
@@ -291,7 +292,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/piers-game.jpg?raw=true",
             "order": 7,
             "gym": "Spikemuth Gym",
             "leader": "Piers",
@@ -330,7 +331,7 @@ export default opponentInfo =
             
         },
         {
-            "image": "",
+            "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/rhian-game.jpg?raw=true",
             "order": 8,
             "gym": "Hammerlocke Gym",
             "leader": "Raihan",
@@ -370,13 +371,29 @@ export default opponentInfo =
         }
     ]
 
+
 export default function GymLeaders() {
     return (
         <div className="gym-leaders-main">
             {opponentInfo.map(opponent => {
+                console.log(opponent.pokemon);
                 return (
                     <section className="opponent-card" key={opponent.leader}>
-                        <p>{opponent.order}. {opponent.leader}</p>
+                        <p className='gym'>{opponent.order}. {opponent.gym}</p>
+                        <img className='image' src={opponent.image} />
+                        <p className='leader'>{opponent.leader}</p>
+                        <p>{opponent.type}</p>
+                        <p>
+                          {opponent.pokemon.map(monster => {
+                              return (
+                              <section className='opponent-pokemon'>
+                                <p>{monster.pokemonName}: Level {monster.pokemonLevel}</p>
+                                <p>Type: {monster.pokemonType}</p>
+                                <p>Weakness: {monster.pokemonWeakness}</p>
+                              </section>
+                              )
+                          })}  
+                        </p>
                     </section>
                 )
             })}
@@ -384,8 +401,6 @@ export default function GymLeaders() {
     )
 }
 
-CardDatabase.propTypes = {
-    card: PropTypes.object
-  }
+
 
 
