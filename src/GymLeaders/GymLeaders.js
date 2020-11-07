@@ -8,7 +8,7 @@ import { PropTypes } from 'prop-types';
 
 export const opponentInfo = [
         {
-        "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/milo-game.jpg?raw=true",
+        "image": "https://github.com/kathrynljackson/poke-planner/blob/main/src/GymLeaders/GymLeader-images/milo-game2.png?raw=true",
         "order": 1,
         "gym": "Turffield Gym",
         "leader": "Milo",
