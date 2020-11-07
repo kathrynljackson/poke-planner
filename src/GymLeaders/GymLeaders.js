@@ -1,5 +1,6 @@
 import React from 'react';
 import './GymLeaders.scss';
+import { PropTypes } from 'prop-types';
 
 
 
@@ -375,12 +376,16 @@ export default function GymLeaders() {
             {opponentInfo.map(opponent => {
                 return (
                     <section className="opponent-card" key={opponent.leader}>
-                        
+                        <p>{opponent.order}. {opponent.leader}</p>
                     </section>
                 )
             })}
         </div>
     )
 }
+
+CardDatabase.propTypes = {
+    card: PropTypes.object
+  }
 
 
