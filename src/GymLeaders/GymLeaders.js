@@ -377,18 +377,21 @@ export default function GymLeaders() {
         <div className="gym-leaders-main">
             {opponentInfo.map(opponent => {
                 return (
-                    <section className="opponent-card" key={opponent.leader}>
-                        <p className='gym'>{opponent.order}. {opponent.gym}</p>
-                        <img className='image' src={opponent.image} alt={opponent.leader}/>
-                        <p className='leader'>{opponent.leader}</p>
-                        <p>{opponent.type}</p>
-                        <section>
+                    <section className={`opponent-card ${opponent.type}`} key={opponent.leader}>
+                        <section className='left-side'>
+                            <p className='opponent-gym'>{opponent.order}. {opponent.gym}</p>
+                            <img className='opponent-image' src={opponent.image} alt={opponent.leader}/>
+                            <p className='opponent-leader'>{opponent.leader}</p>
+                            <a classname='opponent-type'>{opponent.type} Type</a>
+                        </section>
+                        <section className='right-side'>
                           {opponent.pokemon.map(monster => {
                               return (
                               <section key={monster.pokemonId} className='opponent-pokemon'>
-                                <p>{monster.pokemonName}: Level {monster.pokemonLevel}</p>
-                                <p>Type: {monster.pokemonType}</p>
-                                <p>Weakness: {monster.pokemonWeakness}</p>
+                                <p className='title-pokemon subtitle'>{monster.pokemonName} </p>
+                                <p><a className='subtitle'>Level:</a> {monster.pokemonLevel}</p>
+                                <p><a className='subtitle'>Type:</a> {monster.pokemonType}</p>
+                                <p><a className='subtitle'>Weakness:</a> {monster.pokemonWeakness}</p>
                               </section>
                               )
                           })}  
