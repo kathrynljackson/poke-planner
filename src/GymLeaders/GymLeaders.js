@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './GymLeaders.scss';
 import { PropTypes } from 'prop-types';
 
@@ -376,24 +376,23 @@ export default function GymLeaders() {
     return (
         <div className="gym-leaders-main">
             {opponentInfo.map(opponent => {
-                console.log(opponent.pokemon);
                 return (
                     <section className="opponent-card" key={opponent.leader}>
                         <p className='gym'>{opponent.order}. {opponent.gym}</p>
-                        <img className='image' src={opponent.image} />
+                        <img className='image' src={opponent.image} alt={opponent.leader}/>
                         <p className='leader'>{opponent.leader}</p>
                         <p>{opponent.type}</p>
-                        <p>
+                        <section>
                           {opponent.pokemon.map(monster => {
                               return (
-                              <section className='opponent-pokemon'>
+                              <section key={monster.pokemonId} className='opponent-pokemon'>
                                 <p>{monster.pokemonName}: Level {monster.pokemonLevel}</p>
                                 <p>Type: {monster.pokemonType}</p>
                                 <p>Weakness: {monster.pokemonWeakness}</p>
                               </section>
                               )
                           })}  
-                        </p>
+                        </section>
                     </section>
                 )
             })}
