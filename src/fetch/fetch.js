@@ -1,4 +1,7 @@
-export const fetchMonsters = () => {
-    return fetch('https://empress-tarot-api.herokuapp.com/cards')
+
+
+export const fetchMonstersByName = (name) => {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .then(res => res.json())
 }
+
