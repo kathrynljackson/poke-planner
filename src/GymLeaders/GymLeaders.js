@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './GymLeaders.scss';
 import { PropTypes } from 'prop-types';
 
@@ -8,7 +8,7 @@ import { PropTypes } from 'prop-types';
 
 export const opponentInfo = [
         {
-        "image": "https://github.com/kathrynljackson/poke-planner/blob/gym-leaders/src/GymLeaders/GymLeader-images/milo-game.jpg?raw=true",
+        "image": "https://github.com/kathrynljackson/poke-planner/blob/main/src/GymLeaders/GymLeader-images/milo-game2.png?raw=true",
         "order": 1,
         "gym": "Turffield Gym",
         "leader": "Milo",
@@ -376,24 +376,26 @@ export default function GymLeaders() {
     return (
         <div className="gym-leaders-main">
             {opponentInfo.map(opponent => {
-                console.log(opponent.pokemon);
                 return (
-                    <section className="opponent-card" key={opponent.leader}>
-                        <p className='gym'>{opponent.order}. {opponent.gym}</p>
-                        <img className='image' src={opponent.image} />
-                        <p className='leader'>{opponent.leader}</p>
-                        <p>{opponent.type}</p>
-                        <p>
+                    <section className={`opponent-card ${opponent.type}`} key={opponent.leader}>
+                        <section className='left-side'>
+                            <p className='opponent-gym'>{opponent.order}. {opponent.gym}</p>
+                            <img className='opponent-image' src={opponent.image} alt={opponent.leader}/>
+                            <p className='opponent-leader'>{opponent.leader}</p>
+                            <a classname='opponent-type'>{opponent.type} Type</a>
+                        </section>
+                        <section className='right-side'>
                           {opponent.pokemon.map(monster => {
                               return (
-                              <section className='opponent-pokemon'>
-                                <p>{monster.pokemonName}: Level {monster.pokemonLevel}</p>
-                                <p>Type: {monster.pokemonType}</p>
-                                <p>Weakness: {monster.pokemonWeakness}</p>
+                              <section key={monster.pokemonId} className='opponent-pokemon'>
+                                <p className='title-pokemon subtitle'>{monster.pokemonName} </p>
+                                <p><a className='subtitle'>Level:</a> {monster.pokemonLevel}</p>
+                                <p><a className='subtitle'>Type:</a> {monster.pokemonType}</p>
+                                <p><a className='subtitle'>Weakness:</a> {monster.pokemonWeakness}</p>
                               </section>
                               )
                           })}  
-                        </p>
+                        </section>
                     </section>
                 )
             })}

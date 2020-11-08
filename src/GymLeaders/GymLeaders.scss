@@ -1,13 +1,71 @@
-.image {
-    height: 8em;
-    width: auto;
-    object-fit: cover;
-    max-width: 90%;
+.gym-leaders-main {
+ 
 }
 
 .opponent-card {
-    border: black solid 3px;
+    border: white solid 5px;
     border-radius: 5px;
-    max-width: 30%;
-    margin: 1%;
+    max-width: 100%;
+    margin: 3%;
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+    justify-content: space-between;
+
+    .opponent-gym {
+        font-size: 2em;
+    }
+
+    .opponent-leader {
+        font-size: 1.5em;
+    }
+    
+    .opponent-type {
+        font-size: 2em;
+    }
 }
+
+.opponent-image {
+    height: 10em;
+    width: auto;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 5px;
+    border: white solid 5px;
+}
+
+
+
+.left-side {
+    width: 40%;
+    padding: 2%;
+    font-size: 1.5em;
+}
+
+.right-side {
+    width: 50%;
+    padding: 2%;
+}
+
+.opponent-pokemon {
+    font-weight: 500;
+    font-size: 1.4em;
+    background-color: rgba(255, 255, 255, 0.591);
+    border-radius: 5px;
+    color: black;
+    margin: 4% 1% 4% 1%;
+    padding: 1% 5% 1% 5%;
+
+    .subtitle {
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+    .title-pokemon {
+        text-decoration: underline solid black;
+    }
+}
+
+
+
+
