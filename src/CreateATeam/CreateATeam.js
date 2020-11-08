@@ -44,29 +44,31 @@ class CreateATeam extends Component {
 
             <div>
                 <section className='your-team'>
-                    <p>Your Team So Far</p>
+                    <p className='main-title'>Create A Team</p>
 
                 </section>
                 <section className='choose-opponent'>
-                    <p className='title'>Choose Your Opponent</p>
-                    <section>
+                    <p className='title'>Choose Your Opponent:</p>
+                    <section className='opponents'>
                         {opponentInfo.map(opponent => {
                             return (
-                                <div className={`team-opponenet ${opponent.type}`} key={opponent.leader}>
-                                    <p className='gym'>{opponent.order}. {opponent.gym}</p>
+                                <div className={`team-opponent ${opponent.type}`} key={opponent.leader}>
+                                    <p className='gym'>{opponent.gym}</p>
                                     <img className='image' src={opponent.image} alt={opponent.leader}/>
-                                    <p className='leader'>{opponent.leader}</p>
-                                    <p>{opponent.type}</p>
+                                    <div className='opponent-info'>
+                                        <p className='leader'>Gym Leader: {opponent.leader}</p>
+                                        <p>Type: {opponent.type}</p>
+                                    </div>
                                 </div>
                             )
                         })}
                     </section>
                 </section>
                 <section className='pokemon-list'>
-                    <p className='title'>Build Your Team</p>
+                    <p className='title'>Build Your Team:</p>
                     <input className='search-input search-by-name' value={this.state.typedName} as="textarea" name="typedName" onChange={(event) => this.updateSearch(event)} placeholder='Search By Name'/>
                     <button className='name-button' onClick={(event) => {this.searchByName(this.state.typedName)}}>Search</button>
-                    <p className='subtitle'>Search Results:</p>
+                    <p className='subtitle-search'>Search Results:</p>
                     <section className='search-results'>
                         {() => this.theSearchResults(this.state.typedName)}
                     </section>

@@ -1,0 +1,117 @@
+.opponents {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    justify-content: space-between;
+}
+
+.main-title {
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.team-opponent {
+    color: white;
+    text-align: center;
+    border: white solid 5px;
+    border-radius: 5px;
+    width: 20%;
+    min-width: 15%;
+    max-width: 25%;
+    margin: 1%;
+    padding: 2%;
+    font-size: 1.5em;
+}
+
+.order {
+    color: white;
+    background-color: black;
+    border: white 3px solid;
+    padding: 1%;
+    border-radius: 5px;
+    width: 15%;
+}
+
+.gym {
+    color: white;
+    background-color: black;
+    border: white 3px solid;
+    line-height: 1;
+    padding: 3%;
+    border-radius: 5px;
+}
+
+.image {
+    height: 5em;
+    width: auto;
+    object-fit: cover;
+    max-width: 100%;
+    border: white 5px solid;
+    border-radius: 5px;
+}
+
+.opponent-info {
+    padding: 5%;
+    text-align: left;
+    color: white;
+    border: white 3px solid;
+    background-color: rgba(0, 0, 0, 0.687);
+    border-radius: 5px;
+}
+
+
+
+.Water {
+    background-color: aqua;
+}
+
+.Grass {
+    background-color: rgb(64, 172, 64);
+}
+
+.Fire {
+    background-color: rgb(184, 107, 71);
+}
+
+.Ghost {
+    background-color: rgb(145, 78, 164);
+}
+
+.Fighting {
+    background-color: rgb(2, 114, 107);
+}
+
+.Fairy {
+    background-color: rgb(250, 151, 255);
+}
+
+.Ice {
+    background-color: rgb(197, 208, 255);
+}
+
+.Rock {
+    background-color: rgb(89, 90, 92);
+}
+
+.Dark {
+    background-color: rgb(43, 24, 111);
+}
+
+.Dragon {
+    background-color: rgb(50, 2, 2);
+}
+
+.search-input {
+    font-size: 2em;
+    width: 25%;
+}
+
+.subtitle-search {
+    font-size: 1.5em;
+}
+
