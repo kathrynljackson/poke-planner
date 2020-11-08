@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import GymLeaders from '../GymLeaders/GymLeaders';
+import GymLeaders from '../GymLeaders/GymLeaders.js';
 import CreateATeam from '../CreateATeam/CreateATeam.js';
+import Header from '../Header/Header.js';
 
 class App extends Component {
   constructor() {
@@ -34,15 +35,16 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Header />
         <div className="App">
           <Route exact path='/gymleaders'>
             <GymLeaders />
           </Route>
           <Route exact path='/createateam' render={() => (
             <CreateATeam myTeams={this.state.myTeams} />
-          )}/>
+          )}>
             
-          
+          </Route>
         </div>
       </Router>
     );
