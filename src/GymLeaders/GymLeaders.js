@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './GymLeaders.scss';
 import { PropTypes } from 'prop-types';
 
-
-
-
-
 export const opponentInfo = [
         {
         "image": "https://github.com/kathrynljackson/poke-planner/blob/main/src/GymLeaders/GymLeader-images/milo-game2.png?raw=true",
@@ -402,7 +398,3 @@ export default function GymLeaders() {
         </div>
     )
 }
-
-
-
-
