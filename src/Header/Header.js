@@ -6,8 +6,8 @@ export default function Header() {
         <header className='header'>
             <section className='header-title'>PokéPlanner</section>
             <nav className='header-links'>
-                <a href='/createateam'>My Teams</a>
-                <a href='/pokedex'>Pokédex</a>
+                <a href='/myteams'>My Teams</a>
+                <a href='/createateam'>Create A Team</a>
                 <a href='/gymleaders'>Gym Leaders</a>
                 <a href='https://github.com/kathrynljackson/poke-planner' target='_blank'>About</a>
             </nav>

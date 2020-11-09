@@ -1,82 +1,98 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './CreateATeam.scss';
 import { opponentInfo } from '../GymLeaders/GymLeaders.js';
 import { PropTypes } from 'prop-types';
 import { fetchMonstersByName} from '../fetch/fetch.js';
+import AsyncSelect from 'react-select';
+import axios from 'axios';
+import Multi from 'multi';
 
 class CreateATeam extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchResult: {},
-            typedName:'',
-            myOpponent: '',
-            newTeam: {},
+            opponent: '',
+            monsters:[],
         }
+        //this.handleChange = this.handleChange.bind(this)
     }
 
-    searchByName = (name) => {
-        return fetchMonstersByName(name)
-        .then(response => console.log(response))
-        .then(data => this.setState({ searchResult: data }))
-        .catch(err => alert('There are no Pokémon by that name.'));
-    }
+    async getOptions(){
+        const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1050');
+        const data = res.data
+        console.log('DATA', data);
+    
+        const options = data.results.map(d => (
+            { value: d.url, label: d.name, key: d.name }))
 
-    updateSearch = (event) => {
-        console.log(this.state.searchResult);
-        this.setState({[event.target.name]: event.target.value});
-    }
-
-    theSearchResults = (name) => {
-        if (name){
-            let monster = fetchMonstersByName(name);
-            console.log(monster.name)
-            return(
-                <p>{monster.name}</p>
-            )
-        }
+        this.setState({ selectOptions: options })
 
     }
 
 
+    handleChange(e){
+        console.log('HandleChange', e);
+        console.log('STATE', this.state);
+        if(e){
+            this.setState({ opponent: e.value });
+            console.log('STATE2', this.state);
+        } 
+    }
+
+    handleChange2(e){
+        console.log('HandleChange2', e);
+        console.log('HANDLING CHANGE 1', this.state);
+        if(e){
+            this.setState({ monsters: e });
+            console.log('HANDLING CHANGE 2', this.state);
+        } 
+    }
+
+    
+
+    getOptions2(){
+        const options = opponentInfo.map(d => (
+            { value: d, label: d.gym, key: d.leader }))
+    
+        this.setState({opponentOptions: options})
+    }
+
+
+    
+    componentDidMount(){
+        this.getOptions()
+        this.getOptions2()
+    }
+    
     render() {
-        return(
-
-            <div>
-                <section className='your-team'>
-                    <p className='main-title'>Create A Team</p>
-
-                </section>
-                <section className='choose-opponent'>
-                    <p className='title'>Choose Your Opponent:</p>
-                    <section className='opponents'>
-                        {opponentInfo.map(opponent => {
-                            return (
-                                <div className={`team-opponent ${opponent.type}`} key={opponent.leader}>
-                                    <p className='gym'>{opponent.gym}</p>
-                                    <img className='image' src={opponent.image} alt={opponent.leader}/>
-                                    <div className='opponent-info'>
-                                        <p className='leader'>Gym Leader: {opponent.leader}</p>
-                                        <p>Type: {opponent.type}</p>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </section>
-                </section>
-                <section className='pokemon-list'>
-                    <p className='title'>Build Your Team:</p>
-                    <input className='search-input search-by-name' value={this.state.typedName} as="textarea" name="typedName" onChange={(event) => this.updateSearch(event)} placeholder='Search By Name'/>
-                    <button className='name-button' onClick={(event) => {this.searchByName(this.state.typedName)}}>Search</button>
-                    <p className='subtitle-search'>Search Results:</p>
-                    <section className='search-results'>
-                        {() => this.theSearchResults(this.state.typedName)}
-                    </section>
-                </section>
+    // console.log('RENDER', this.state.selectOptions)
+    return (
+        <div className='create-a-team'>
+            <div className='select-opponent'>
+            <p className='select-opponent-title'>Select Your Opponent</p>
+            <AsyncSelect 
+                cacheOptions 
+                defaultOptions 
+                options={this.state.opponentOptions} 
+                onChange={this.handleChange.bind(this)} 
+            />
             </div>
+            <div className='select-monsters'>
+                <p className='select-monsters-title'>Select Your Team</p>
+                <AsyncSelect 
+                    isMulti 
+                    // cacheOptions 
+                    // defaultOptions 
+                    options={this.state.selectOptions} 
+                    onChange={this.handleChange2.bind(this)} 
+                    placeholder='Search by Pokémon name...'
+                />
+            </div>
+        </div>
         )
     }
 }
+
 
 CreateATeam.proptype = {
     opponent: PropTypes.object,
