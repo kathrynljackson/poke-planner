@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import GymLeaders from '../GymLeaders/GymLeaders.js';
+import GymLeaders, { SelectOpponent } from '../GymLeaders/GymLeaders.js';
 import CreateATeam from '../CreateATeam/CreateATeam.js';
 import Header from '../Header/Header.js';
+import Pokedex from '../Pokedex/Pokedex.js';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      researchTopic: {},
       myTeams: []
     }
   }
@@ -23,13 +25,17 @@ class App extends Component {
     }
   }
 
-  saveTeams = () => {
+  saveTeam = () => {
     localStorage.setItem('teams', JSON.stringify(this.state.myTeams));
   }
 
   updateState = (value) => {
     this.setState({ myTeams: value })
     this.saveTeams()
+  }
+
+  updateResearch = (value) => {
+    this.setState({ researchTopic: value })
   }
 
   render() {
@@ -40,8 +46,12 @@ class App extends Component {
           <Route exact path='/gymleaders'>
             <GymLeaders />
           </Route>
-          <Route exact path='/createateam' render={() => (
-            <CreateATeam myTeams={this.state.myTeams} />
+          <Route exact path='/createateam' render={props => (
+            <div>
+              <CreateATeam myTeams={this.state.myTeams} />
+              <Pokedex researchTopic={this.state.researchTopic} updateResearch={this.updateResearch}/>
+              
+            </div>
           )}>
             
           </Route>
