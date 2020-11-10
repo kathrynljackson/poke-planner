@@ -117,8 +117,37 @@
 
 .select-monsters {
     font-size: 2em;
-    padding: 10% 1% 10% 1%;
-    border-bottom: rgb(240, 202, 49) solid 5px;
+    padding: 5% 1% 10% 1%;
     border-top: rgb(240, 202, 49) solid 5px;
+}
+
+.select-opponent {
+    font-size: 2em;
+    padding: 0% 1% 5% 1%;
+}
+
+.create-a-team {
+margin-left: auto;
+margin-right: auto;
+width: 90%;
+background-color: rgba(255, 255, 255, 0.406);
+border-radius: 5px;
+padding: 2%;
+}
+
+.save-team-button {
+    // align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    padding: 1% 3% 1% 3%;
+    background-color: rgb(240, 202, 49);
+    border: 3px solid black;
+    border-radius: 7px;
+    // margin-left: auto;
+    // margin-right: auto;
+
+    :hover {
+        font-weight: 700;
+    }
 }
 

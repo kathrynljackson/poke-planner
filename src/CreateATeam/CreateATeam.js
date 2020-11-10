@@ -1,11 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import './CreateATeam.scss';
 import { opponentInfo } from '../GymLeaders/GymLeaders.js';
 import { PropTypes } from 'prop-types';
-import { fetchMonstersByName} from '../fetch/fetch.js';
 import AsyncSelect from 'react-select';
 import axios from 'axios';
-import Multi from 'multi';
 
 class CreateATeam extends Component {
     constructor(props) {
@@ -13,6 +11,7 @@ class CreateATeam extends Component {
         this.state = {
             opponent: '',
             monsters:[],
+            newEntry:{},
         }
         //this.handleChange = this.handleChange.bind(this)
     }
@@ -20,7 +19,7 @@ class CreateATeam extends Component {
     async getOptions(){
         const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1050');
         const data = res.data
-        console.log('DATA', data);
+        // console.log('DATA', data);
     
         const options = data.results.map(d => (
             { value: d.url, label: d.name, key: d.name }))
@@ -31,24 +30,22 @@ class CreateATeam extends Component {
 
 
     handleChange(e){
-        console.log('HandleChange', e);
-        console.log('STATE', this.state);
+        // console.log('HandleChange', e);
+        // console.log('STATE', this.state);
         if(e){
             this.setState({ opponent: e.value });
-            console.log('STATE2', this.state);
+            // console.log('STATE2', this.state);
         } 
     }
 
     handleChange2(e){
-        console.log('HandleChange2', e);
-        console.log('HANDLING CHANGE 1', this.state);
+        // console.log('HandleChange2', e);
+        // console.log('HANDLING CHANGE 1', this.state);
         if(e){
             this.setState({ monsters: e });
-            console.log('HANDLING CHANGE 2', this.state);
+            // console.log('HANDLING CHANGE 2', this.state);
         } 
     }
-
-    
 
     getOptions2(){
         const options = opponentInfo.map(d => (
@@ -57,12 +54,22 @@ class CreateATeam extends Component {
         this.setState({opponentOptions: options})
     }
 
-
-    
     componentDidMount(){
         this.getOptions()
         this.getOptions2()
     }
+
+    saveTeam = async (leader, pokemon) => {
+        await this.setState({ newEntry: {
+            id: Date.now(),
+            opponent: leader,
+            team: pokemon
+        }})
+        let newArray = this.props.myTeams.concat(this.state.newEntry)
+        this.props.updateState(newArray)
+    }
+
+
     
     render() {
     // console.log('RENDER', this.state.selectOptions)
@@ -79,7 +86,8 @@ class CreateATeam extends Component {
             </div>
             <div className='select-monsters'>
                 <p className='select-monsters-title'>Select Your Team</p>
-                <AsyncSelect 
+                <AsyncSelect
+                    aria label='Search Pokémon By Name' 
                     isMulti 
                     // cacheOptions 
                     // defaultOptions 
@@ -88,6 +96,7 @@ class CreateATeam extends Component {
                     placeholder='Search by Pokémon name...'
                 />
             </div>
+            <button className='save-team-button' onClick={(event) => { this.saveTeam(this.state.opponent, this.state.monsters) }}>Save Team</button>
         </div>
         )
     }
@@ -95,8 +104,9 @@ class CreateATeam extends Component {
 
 
 CreateATeam.proptype = {
-    opponent: PropTypes.object,
-    newTeam: PropTypes.array,
+    opponent: PropTypes.any,
+    monsters: PropTypes.array,
+    newEntry: PropTypes.object
 }
 
 export default CreateATeam;
