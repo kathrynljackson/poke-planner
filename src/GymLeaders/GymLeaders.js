@@ -377,7 +377,7 @@ export default function GymLeaders() {
                             <p className='opponent-gym'>{opponent.order}. {opponent.gym}</p>
                             <img className='opponent-image' src={opponent.image} alt={opponent.leader}/>
                             <p className='opponent-leader'>{opponent.leader}</p>
-                            <a classname='opponent-type'>{opponent.type} Type</a>
+                            <a className='opponent-type'>{opponent.type} Type</a>
                         </section>
                         <section className='right-side'>
                           {opponent.pokemon.map(monster => {

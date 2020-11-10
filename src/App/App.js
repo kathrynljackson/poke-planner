@@ -60,6 +60,14 @@ class App extends Component {
           <Route exact path='/myteams'>
             <MyTeams myTeams={this.state.myTeams}/>
           </Route>
+          <Route exact path='/' render={props => (
+            <div>
+              <MyTeams myTeams={this.state.myTeams} />
+              <CreateATeam myTeams={this.state.myTeams} updateState={this.updateState}/>
+              <Pokedex researchTopic={this.state.researchTopic} updateResearch={this.updateResearch}/> 
+            </div>
+          )}>
+          </Route>
         </div>
       </Router>
     );
