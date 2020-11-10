@@ -1,4 +1,4 @@
-# Poképlanner
+# PokéPlanner
 
 ## About
 This app allows Nintendo Switch players to research and choose the Pokémon that they would like to use for each opponent in the games _Pokémon Sword_ and _Pokémon Shield_. 
