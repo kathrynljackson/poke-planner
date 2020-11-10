@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Poképlanner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+This app allows Nintendo Switch players to research and choose the Pokémon that they would like to use for each opponent in the games _Pokémon Sword_ and _Pokémon Shield_. 
 
-## Available Scripts
+## Expectations
+* demonstrate mastery of React
+* demonstrate mastery of Router
+* demonstrate mastery of Asynchronous JavaScript
+* utilize assigned API and technology
+* display the data from the API in a way that applies directly to a specific audience
+* store/manipulate the data displayed in the application, such as favoriting or adding to a list
 
-In the project directory, you can run:
 
-### `npm start`
+## Utilizing the Code 
+1. In your terminal, choose the directory you want this code to be stored in.
+2. Clone [this repository](https://github.com/kathrynljackson/poke-planner) using `git clone https://github.com/kathrynljackson/poke-planner`
+3. Inside of the new directory, run `npm install` to install all dependencies.
+4. Run `npm start` to deploy the app in your default browser.
+5. `npm test` can be used to review all tests.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## To Use
+Users can choose the gym leader that will be their opponent and decide what Pokémon will be on that specific team. The user can create multiple teams for each opponent, allowing them to choose the Pokémon that work best for their fighting style at each point in the game. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+Unsure of the Pokémon type you want to use? The **Pokédex** feature allows you to search for a Pokémon by name and view its name, type, and picture.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Continued Goals
+This project reaches the minimum goals that I set at the start, but there are several features and improvements I would like to implement:
+* show the Gym Leader pictures in the `AsyncSelect` component
+* pass all tests
+* be able to search for and view Gym Leaders and their details on the same page that the user builds their team on
+* increase accessibility
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
