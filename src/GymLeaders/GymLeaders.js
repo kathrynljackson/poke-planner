@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './GymLeaders.scss';
-import { PropTypes } from 'prop-types';
 
 export const opponentInfo = [
         {
