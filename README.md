@@ -22,8 +22,17 @@ This app allows Nintendo Switch players to research and choose the Pokémon that
 ## To Use
 Users can choose the gym leader that will be their opponent and decide what Pokémon will be on that specific team. The user can create multiple teams for each opponent, allowing them to choose the Pokémon that work best for their fighting style at each point in the game. 
 
+![Screen Shot 2020-11-09 at 11 24 51 PM](https://user-images.githubusercontent.com/65988644/98628313-8e8d4980-22d3-11eb-898d-efe760377bfb.png)
 
 Unsure of the Pokémon type you want to use? The **Pokédex** feature allows you to search for a Pokémon by name and view its name, type, and picture.
+
+![Screen Shot 2020-11-09 at 11 25 30 PM](https://user-images.githubusercontent.com/65988644/98628260-6c93c700-22d3-11eb-8947-b4ebbdc6d391.png)
+
+![Screen Shot 2020-11-09 at 11 25 40 PM](https://user-images.githubusercontent.com/65988644/98628265-70274e00-22d3-11eb-8be9-0943e51627b4.png)
+
+Saved teams are stored in `localStorage` and can be viewed throughout gameplay.
+
+![Screen Shot 2020-11-09 at 11 25 08 PM](https://user-images.githubusercontent.com/65988644/98628320-9351fd80-22d3-11eb-9bd5-44ca818addad.png)
 
 
 ## Continued Goals
