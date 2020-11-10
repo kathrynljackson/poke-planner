@@ -2,10 +2,6 @@ import './MyTeams.scss';
 import { PropTypes } from 'prop-types';
 
 export default function MyTeams(props) {
-    console.log('PROPS', props)
-
-
-   
     if(props.myTeams.length < 0){
         return (
             <p>You have no teams planned. Create one below.</p>
