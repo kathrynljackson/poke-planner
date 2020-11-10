@@ -14,7 +14,7 @@ This app allows Nintendo Switch players to research and choose the Pokémon that
 
 ## Utilizing the Code 
 1. In your terminal, choose the directory you want this code to be stored in.
-2. Clone [this repository](https://github.com/kathrynljackson/poke-planner) using `git clone https://github.com/kathrynljackson/poke-planner`
+2. Clone [this repository](https://github.com/kathrynljackson/poke-planner) using `git clone https://github.com/kathrynljackson/poke-planner.git`
 3. Inside of the new directory, run `npm install` to install all dependencies.
 4. Run `npm start` to deploy the app in your default browser.
 5. `npm test` can be used to review all tests.
