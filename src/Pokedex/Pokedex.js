@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import './Pokedex.scss';
-import { opponentInfo } from '../GymLeaders/GymLeaders.js';
 import { PropTypes } from 'prop-types';
 import { fetchMonstersByName} from '../fetch/fetch.js';
 import AsyncSelect from 'react-select';
 import axios from 'axios';
-import Multi from 'multi';
 
 class Pokedex extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectOptions: [],
+            researchTopic: [],
             id: '',
             name: '',
         }
@@ -33,60 +32,79 @@ class Pokedex extends Component {
         console.log('GETONEMONSTER IS RUNNING')
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
         const data = res.data
-        console.log('DATA', data);
-    
-        const topic = data.map( d => (
-            
-            console.log({ value: d.name, label: d.name, key: d.name }))
-           
-        )
-        this.setState({ researchTopic: topic })
+        console.log('SINGLE DATA', data);
 
+        this.setState({ researchTopic: data })
     }
-
-    updateResearch = (value) => {
-        this.setState({ researchTopic: value })
-      }
 
 
     handleChange(e){
-        console.log('HandleChange', e, this.state);
-        console.log('STATE', this.state);
+        // console.log('HandleChange', e, this.state);
+        // console.log('POKEDEX STATE', this.state);
         if(e){
-            console.log('STATE2', this.state);
-            fetchMonstersByName(e.key)
-            .then(response => console.log('RESPONSE', response))
-            .then(response => this.updateResearch(response));
+            const informationObject = this.getOneMonster(e.label);
+            console.log(informationObject);
+            this.setState({ currentResearch: e });
             
             
         }
-        this.getOneMonster(e.name);
+        // this.getOneMonster(e.name);
        
       }
 
     
     componentDidMount(){
+        this.getOptions()
+    }
 
-            this.getOptions()
-        
+    getPicture(){
+        if(this.state.researchTopic.sprites){
+            console.log('GET PICTURE', this.state.researchTopic.sprites)
+            console.log('GET ONE PICTURE', this.state.researchTopic.sprites.front_default)
+
+            return this.state.researchTopic.sprites.front_default;
+        }
+    }
+
+    getTypes(){
+        if(this.state.researchTopic.moves) {
+            let theseTypes = this.state.researchTopic.types.map(type => { 
+                console.log(type.type.name);
+                return <li key={type.type.name}><a className='type-title'>Pokémon Type: </a>{type.type.name}</li>
+            
+            })
+            return theseTypes
+        }
     }
     
     render() {
-    console.log('RENDER', this.state.selectOptions)
+    console.log('RENDER', this.state.researchTopic)
+    let monster = this.state.researchTopic;
+    let pic = this.getPicture();
+    let types = this.getTypes();
     return (
         <div className='pokedex'>
-            <p className='pokedex'>Research Using The Pokédex</p>
-            <AsyncSelect cacheOptions defaultOptions options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
-            
+            <p className='pokedex-title'>Research Using The Pokédex</p>
+            <AsyncSelect 
+                // cacheOptions 
+                // defaultOptions 
+                options={this.state.selectOptions} 
+                onChange={this.handleChange.bind(this)} 
+            />   
+            <div className='show-pokemon'>
+                <p className='monster-name'>{monster.name}</p>
+                <img className='monster-sprite' src = {pic} />
+                <p>{types}</p>
+            </div>
         </div>
         )
     }
 }
 
 
-// Pokedex.proptype = {
-//     opponent: PropTypes.object,
-//     newTeam: PropTypes.array,
-// }
+Pokedex.proptype = {
+    selectOptions: PropTypes.array,
+    researchTopic: PropTypes.array,
+}
 
 export default Pokedex;

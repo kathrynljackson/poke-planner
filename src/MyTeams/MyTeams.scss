@@ -1,0 +1,52 @@
+.my-teams-main {
+    font-size: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 5%;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.406);
+    border-radius: 5px;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.my-teams-title {
+    width: 100%;
+    font-size: 1em;
+}
+
+.each-team {
+    // border: black solid 5px;
+
+    border-radius: 10px;
+    width: 40%;
+    font-size: 1em;
+    margin: 1%;
+    padding: 3%;
+}
+
+.team-gym {
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.419);
+    border-radius: 10px;
+    padding: 1% 3% 1% 3%;
+}
+
+.team-image {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+
+    border-radius: 10px;
+    // border: white solid 5px;
+}
+
+.team-monsters {
+    font-size: .7em;
+    background-color: rgba(255, 255, 255, 0.419);
+    border-radius: 10px;
+    padding: 1% 3% 1% 3%;
+}
+
