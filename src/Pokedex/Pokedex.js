@@ -21,9 +21,7 @@ class Pokedex extends Component {
     
         const options = data.results.map(d => (
             { value: d.url, label: d.name, key: d.name }))
-
         this.setState({selectOptions: options})
-
     }
 
     async getOneMonster(name){

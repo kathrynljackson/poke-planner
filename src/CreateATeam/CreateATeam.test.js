@@ -40,7 +40,7 @@ describe('CreateATeam', () => {
         ]
     }]
 
-    it('saves a team onClick', () => {
+    it.skip('saves a team onClick', () => {
         const mockSave = jest.fn();
         const mockUpdate = jest.fn();
 
