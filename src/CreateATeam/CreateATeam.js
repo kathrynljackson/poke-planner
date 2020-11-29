@@ -17,7 +17,7 @@ class CreateATeam extends Component {
 
     async getOptions(){
         const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1050');
-        const data = res.data
+        const data = await res.data
     
         const options = data.results.map(d => (
             { value: d.url, label: d.name, key: d.name }))
