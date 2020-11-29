@@ -10,5 +10,5 @@ deploy:
   app: poke-planner
   on: 
    branch: main
-  skip_cleanup: true 
+  # skip_cleanup: true 
   
